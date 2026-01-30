@@ -6,9 +6,12 @@
   "homepage": "https://www.mydaytools.com",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
+    "build": "npm run build:ssg",
+    "build:client": "vite build --outDir dist/static",
+    "build:server": "vite build --ssr entry-server.tsx --outDir dist/server",
+    "build:ssg": "npm run build:client && npm run build:server && node scripts/prerender.mjs",
+    "predeploy": "npm run build:ssg",
+    "deploy": "gh-pages -d dist/static",
     "lint": "eslint .",
     "preview": "vite preview"
   },
