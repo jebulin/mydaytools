@@ -1,23 +1,78 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FileCode2, Github, Twitter, Mail } from 'lucide-react';
 
-// Premium Footer component – appears on every page.
-// Uses a dark gradient background, subtle blur, and responsive layout.
-// Add any future links or social icons here.
 const Footer: React.FC = () => {
   const year = new Date().getFullYear();
   return (
-    <footer className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-slate-300 py-6 px-4 backdrop-blur-md border-t border-slate-700">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-        <div className="text-sm">
-          © {year} JSON Master. All rights reserved.
+    <footer className="bg-slate-900 border-t border-slate-800 pt-12 pb-6 px-6">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+          {/* Brand Column */}
+          <div className="md:col-span-1">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center shadow-lg shadow-blue-500/20">
+                <FileCode2 className="text-white w-5 h-5" />
+              </div>
+              <span className="font-bold text-white text-lg tracking-tight">My Day Tools</span>
+            </div>
+            <p className="text-slate-500 text-sm leading-relaxed mb-6">
+              A premium suite of free online tools for developers. Fast, private, and secure by design.
+            </p>
+            <div className="flex items-center gap-4">
+              <a href="#" className="p-2 bg-slate-800 hover:bg-slate-700 rounded-lg text-slate-400 hover:text-white transition-all">
+                <Github size={18} />
+              </a>
+              <a href="#" className="p-2 bg-slate-800 hover:bg-slate-700 rounded-lg text-slate-400 hover:text-white transition-all">
+                <Twitter size={18} />
+              </a>
+              <a href="#" className="p-2 bg-slate-800 hover:bg-slate-700 rounded-lg text-slate-400 hover:text-white transition-all">
+                <Mail size={18} />
+              </a>
+            </div>
+          </div>
+
+          {/* Tools Column */}
+          <div className="md:col-span-1">
+            <h4 className="text-white font-bold mb-4 uppercase tracking-wider text-xs">Utilities</h4>
+            <ul className="space-y-3">
+              <li><Link to="/json-master" className="text-slate-500 hover:text-blue-400 text-sm transition-colors">JSON Formatter</Link></li>
+              <li><Link to="/text-compare" className="text-slate-500 hover:text-blue-400 text-sm transition-colors">Text Compare</Link></li>
+              <li><Link to="/encode-decode" className="text-slate-500 hover:text-blue-400 text-sm transition-colors">Encode & Decode</Link></li>
+              <li><Link to="/" className="text-slate-500 hover:text-blue-400 text-sm transition-colors">All Tools</Link></li>
+            </ul>
+          </div>
+
+          {/* Media Column */}
+          <div className="md:col-span-1">
+            <h4 className="text-white font-bold mb-4 uppercase tracking-wider text-xs">Resources</h4>
+            <ul className="space-y-3">
+              <li><Link to="/blog" className="text-slate-500 hover:text-blue-400 text-sm transition-colors">Developer Blog</Link></li>
+              <li><a href="#" className="text-slate-500 hover:text-blue-400 text-sm transition-colors">API Docs</a></li>
+              <li><a href="#" className="text-slate-500 hover:text-blue-400 text-sm transition-colors">Release Notes</a></li>
+              <li><a href="#" className="text-slate-500 hover:text-blue-400 text-sm transition-colors">Open Source</a></li>
+            </ul>
+          </div>
+
+          {/* Legal Column */}
+          <div className="md:col-span-1">
+            <h4 className="text-white font-bold mb-4 uppercase tracking-wider text-xs">Legal</h4>
+            <ul className="space-y-3">
+              <li><a href="#" className="text-slate-500 hover:text-blue-400 text-sm transition-colors">Privacy Policy</a></li>
+              <li><a href="#" className="text-slate-500 hover:text-blue-400 text-sm transition-colors">Terms of Service</a></li>
+              <li><a href="#" className="text-slate-500 hover:text-blue-400 text-sm transition-colors">Cookie Policy</a></li>
+            </ul>
+          </div>
         </div>
-        <nav className="flex gap-4 text-sm">
-          <Link to="/" className="hover:text-white transition-colors">Tools</Link>
-          <Link to="/json-master" className="hover:text-white transition-colors">JSON Master</Link>
-          <Link to="/text-compare" className="hover:text-white transition-colors">Text Compare</Link>
-          <Link to="/blog" className="hover:text-white transition-colors">Blog</Link>
-        </nav>
+
+        <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-slate-600 text-[10px] uppercase tracking-[0.2em] font-bold">
+            © {year} MY DAY TOOLS • PRIVACY FOCUSED UTILITIES
+          </p>
+          <div className="flex items-center gap-6">
+            <span className="text-slate-600 text-[10px] uppercase tracking-[0.2em] font-bold">Local processing • No data sent to server</span>
+          </div>
+        </div>
       </div>
     </footer>
   );

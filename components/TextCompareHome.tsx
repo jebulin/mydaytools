@@ -10,6 +10,7 @@ import {
   FileText,
   Copy
 } from 'lucide-react';
+import SEO from './SEO';
 
 const TextCompareHome: React.FC = () => {
   const [originalText, setOriginalText] = useState<string>('');
@@ -31,138 +32,146 @@ const TextCompareHome: React.FC = () => {
     }
   };
 
-  const handleAnalyze = async () => {
-    if (!originalText && !modifiedText) return;
-    setIsAnalyzing(true);
-    // const result = await analyzeDifferences(originalText, modifiedText);
-    // setAiSummary(result);
-    setIsAnalyzing(false);
-  };
-
   const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text);
   };
 
-  // Sample data for quick testing
   const loadSampleData = () => {
     setOriginalText(`The quick brown fox jumps over the lazy dog.\nThis is a simple text comparison tool.\nIt is very useful for developers.`);
     setModifiedText(`The quick red fox jumped over the lazy dog.\nThis is an advanced text comparison web app.\nIt is extremely useful for developers and writers.`);
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col font-sans text-slate-900">
+    <>
+      <SEO
+        title="Text Compare - Diff Checker Online"
+        description="Compare two text snippets online and highlight differences. Free, secure, and privacy-focused text diff checker for developers and writers."
+        canonical="/text-compare"
+      />
+      <div className="flex flex-col h-full bg-slate-950 text-slate-200 overflow-y-auto">
+        <header className="sr-only">
+          <h1>Text Compare: Advanced Online Diff Checker</h1>
+        </header>
 
-      {/* Header */}
-      <header className="bg-white border-b border-slate-200 sticky top-0 z-20 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="bg-indigo-600 p-2 rounded-lg">
-              <ArrowRightLeft className="w-5 h-5 text-white" />
-            </div>
-            <h1 className="text-xl font-bold text-slate-800 tracking-tight">TextDiff AI</h1>
-          </div>
+        <main className="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 flex flex-col gap-6">
 
-          <div className="flex items-center gap-4">
-            <div className="hidden md:flex bg-slate-100 p-1 rounded-lg">
-              <button
-                onClick={() => setDiffMethod(DiffMethod.Words)}
-                className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors ${diffMethod === DiffMethod.Words ? 'bg-white text-indigo-600 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
-              >
-                Words
-              </button>
-              <button
-                onClick={() => setDiffMethod(DiffMethod.Chars)}
-                className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors ${diffMethod === DiffMethod.Chars ? 'bg-white text-indigo-600 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
-              >
-                Chars
-              </button>
-              <button
-                onClick={() => setDiffMethod(DiffMethod.Lines)}
-                className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors ${diffMethod === DiffMethod.Lines ? 'bg-white text-indigo-600 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
-              >
-                Lines
-              </button>
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div>
+              <h2 className="text-2xl font-bold text-white tracking-tight">Text Comparison</h2>
+              <p className="text-slate-400 text-sm mt-1">Identify differences between two versions of text instantly.</p>
             </div>
 
-            <button
-              onClick={loadSampleData}
-              className="text-sm text-slate-500 hover:text-indigo-600 font-medium hidden sm:block"
-            >
-              Load Sample
-            </button>
-          </div>
-        </div>
-      </header>
+            <div className="flex items-center gap-3">
+              <div className="flex bg-slate-900 border border-slate-800 p-1 rounded-lg">
+                <button
+                  onClick={() => setDiffMethod(DiffMethod.Words)}
+                  className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all ${diffMethod === DiffMethod.Words ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/20' : 'text-slate-400 hover:text-slate-200'}`}
+                >
+                  Words
+                </button>
+                <button
+                  onClick={() => setDiffMethod(DiffMethod.Chars)}
+                  className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all ${diffMethod === DiffMethod.Chars ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/20' : 'text-slate-400 hover:text-slate-200'}`}
+                >
+                  Chars
+                </button>
+                <button
+                  onClick={() => setDiffMethod(DiffMethod.Lines)}
+                  className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all ${diffMethod === DiffMethod.Lines ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/20' : 'text-slate-400 hover:text-slate-200'}`}
+                >
+                  Lines
+                </button>
+              </div>
 
-      <main className="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 flex flex-col gap-6">
-
-        {/* Input Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-          {/* Left Input */}
-          <div className="flex flex-col gap-2">
-            <label className="text-sm font-semibold text-slate-600 flex justify-between items-center">
-              Original Text
-              <button onClick={() => copyToClipboard(originalText)} className="text-slate-400 hover:text-indigo-600" title="Copy">
-                <Copy className="w-4 h-4" />
+              <button
+                onClick={loadSampleData}
+                className="text-sm text-blue-400 hover:text-blue-300 font-medium px-4 py-2 rounded-lg border border-blue-500/30 hover:bg-blue-500/10 transition-colors"
+              >
+                Sample
               </button>
-            </label>
-            <textarea
-              className="w-full h-48 p-4 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white shadow-sm resize-none font-mono text-sm transition-all"
-              placeholder="Paste original text here..."
-              value={originalText}
-              onChange={(e) => setOriginalText(e.target.value)}
-            />
+            </div>
           </div>
 
-          {/* Right Input */}
-          <div className="flex flex-col gap-2">
-            <label className="text-sm font-semibold text-slate-600 flex justify-between items-center">
-              Modified Text
-              <button onClick={() => copyToClipboard(modifiedText)} className="text-slate-400 hover:text-indigo-600" title="Copy">
-                <Copy className="w-4 h-4" />
-              </button>
-            </label>
-            <textarea
-              className="w-full h-48 p-4 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white shadow-sm resize-none font-mono text-sm transition-all"
-              placeholder="Paste modified text here..."
-              value={modifiedText}
-              onChange={(e) => setModifiedText(e.target.value)}
-            />
-          </div>
-        </div>
+          {/* Input Section */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <section className="flex flex-col gap-2" aria-label="Original Text Input">
+              <div className="flex justify-between items-center px-1">
+                <label className="text-sm font-semibold text-slate-400">Original Text</label>
+                <button onClick={() => copyToClipboard(originalText)} className="text-slate-500 hover:text-blue-400 transition-colors" title="Copy to clipboard">
+                  <Copy className="w-4 h-4" />
+                </button>
+              </div>
+              <textarea
+                className="w-full h-64 p-4 bg-slate-900 border border-slate-800 rounded-xl focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 outline-none shadow-inner resize-none font-mono text-sm text-slate-200 transition-all placeholder:text-slate-600"
+                placeholder="Paste original text here..."
+                value={originalText}
+                onChange={(e) => setOriginalText(e.target.value)}
+              />
+            </section>
 
-        {/* Action Bar (Sticky on mobile bottom, normal on desktop) */}
-        <div className="flex flex-wrap items-center justify-between gap-4 py-2 border-b border-slate-200 sticky top-20 z-10 bg-slate-50/95 backdrop-blur-sm p-2 rounded-lg">
-          <div className="flex items-center gap-2">
-            <h2 className="text-lg font-bold text-slate-800">Comparison Result</h2>
-            <span className="text-xs px-2 py-0.5 rounded-full bg-slate-200 text-slate-600 hidden sm:inline-block">Auto-updates</span>
+            <section className="flex flex-col gap-2" aria-label="Modified Text Input">
+              <div className="flex justify-between items-center px-1">
+                <label className="text-sm font-semibold text-slate-400">Modified Text</label>
+                <button onClick={() => copyToClipboard(modifiedText)} className="text-slate-500 hover:text-blue-400 transition-colors" title="Copy to clipboard">
+                  <Copy className="w-4 h-4" />
+                </button>
+              </div>
+              <textarea
+                className="w-full h-64 p-4 bg-slate-900 border border-slate-800 rounded-xl focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 outline-none shadow-inner resize-none font-mono text-sm text-slate-200 transition-all placeholder:text-slate-600"
+                placeholder="Paste modified text here..."
+                value={modifiedText}
+                onChange={(e) => setModifiedText(e.target.value)}
+              />
+            </section>
           </div>
 
-          <div className="flex items-center gap-3">
+          {/* Action Bar */}
+          <div className="flex items-center justify-between gap-4 py-4 border-t border-slate-800 mt-4">
+            <div className="flex items-center gap-3">
+              <h3 className="text-lg font-bold text-white">Difference Visualization</h3>
+              <span className="text-[10px] px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700 text-slate-500 uppercase tracking-widest font-bold">Real-time</span>
+            </div>
+
             <button
               onClick={handleClear}
-              className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-red-600 bg-red-50 hover:bg-red-100 rounded-lg transition-colors"
+              className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-red-400 bg-red-400/5 hover:bg-red-400/10 border border-red-400/20 rounded-lg transition-colors"
             >
               <Trash2 className="w-4 h-4" />
-              Clear
+              Clear All
             </button>
-
           </div>
-        </div>
 
-        {/* Diff Output Section */}
-        <div className="flex-1 min-h-[400px]">
-          <DiffViewer
-            original={originalText}
-            modified={modifiedText}
-            method={diffMethod}
-          />
-        </div>
+          {/* Diff Output Section */}
+          <section className="flex-1 bg-slate-900/50 border border-slate-800 rounded-2xl overflow-hidden min-h-[400px]" aria-label="Comparison Results">
+            <DiffViewer
+              original={originalText}
+              modified={modifiedText}
+              method={diffMethod}
+            />
+          </section>
 
-      </main>
-
-    </div>
+          <section className="mt-12 p-8 bg-slate-900 border border-slate-800 rounded-2xl max-w-4xl mx-auto">
+            <h2 className="text-xl font-bold text-white mb-4">Frequently Asked Questions</h2>
+            <div className="space-y-6">
+              <div>
+                <h4 className="text-blue-400 font-semibold mb-2">How does the comparison work?</h4>
+                <p className="text-slate-400 text-sm leading-relaxed">
+                  We use an optimized diff algorithm to identify additions, deletions, and modifications.
+                  You can compare text at the word level, character level, or line level depending on your needs.
+                </p>
+              </div>
+              <div>
+                <h4 className="text-blue-400 font-semibold mb-2">Is my data secure?</h4>
+                <p className="text-slate-400 text-sm leading-relaxed">
+                  Yes! All text comparison happens directly in your browser using JavaScript.
+                  Your text never leaves your machine and is never sent to our servers.
+                </p>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </>
   );
 };
 

@@ -1,49 +1,51 @@
 import React from 'react';
 import Converter from './Converter';
-import { Icons } from './Icon';
+import SEO from './SEO';
 
 const Encoder: React.FC = () => {
   return (
-    <div className="min-h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 via-slate-950 to-slate-950 flex flex-col">
-      {/* Header */}
-      <header className="border-b border-slate-800/60 bg-slate-950/50 backdrop-blur-xl sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="bg-gradient-to-br from-indigo-500 to-purple-600 p-2 rounded-lg shadow-lg shadow-indigo-500/20">
-              <Icons.Exchange className="w-5 h-5 text-white" />
-            </div>
-            <div>
-              <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400 tracking-tight">
-                URL Master
-              </h1>
-            </div>
-          </div>
-          
-          <div className="flex items-center gap-4">
-             <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900 border border-slate-800">
-               <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
-               <span className="text-xs font-medium text-slate-400">Ready</span>
-             </div>
-          </div>
-        </div>
-      </header>
+    <>
+      <SEO
+        title="Encode & Decode - Base64, URL, HTML Entities"
+        description="Powerful online encoder and decoder. Support for Base64, URL encoding, HTML entities, and more. Fast, secure, and privacy-focused."
+        canonical="/encode-decode"
+      />
+      <div className="min-h-screen bg-slate-950 text-slate-200 overflow-y-auto">
+        <header className="sr-only">
+          <h1>Encode Decode: Free Online Data Transformation Tool</h1>
+        </header>
 
-      {/* Main Content */}
-      <main className="flex-grow flex flex-col items-center">
-         <div className="w-full">
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="mb-12 text-center md:text-left">
+            <h2 className="text-3xl font-bold text-white mb-2">Encode & Decode</h2>
+            <p className="text-slate-400">Transform your data between various formats instantly.</p>
+          </div>
+
+          <div className="bg-slate-900/50 border border-slate-800 rounded-3xl overflow-hidden backdrop-blur-sm shadow-2xl">
             <Converter />
-         </div>
-      </main>
+          </div>
 
-      {/* Footer */}
-      <footer className="border-t border-slate-900 bg-slate-950 py-8 mt-auto">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <p className="text-slate-600 text-sm">
-            Built with React, TypeScript & Tailwind.
-          </p>
-        </div>
-      </footer>
-    </div>
+          <section className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+            <div className="p-8 bg-slate-900 border border-slate-800 rounded-2xl">
+              <h3 className="text-xl font-bold text-blue-400 mb-4">Base64 Encoding</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">
+                Base64 is a binary-to-text encoding scheme that represents binary data in an ASCII string format.
+                It is commonly used to embed image data within HTML or CSS files, or to transmit data over media
+                that are designed to handle textual information.
+              </p>
+            </div>
+            <div className="p-8 bg-slate-900 border border-slate-800 rounded-2xl">
+              <h3 className="text-xl font-bold text-emerald-400 mb-4">URL Encoding</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">
+                URL encoding (Percent-encoding) is a mechanism for encoding information in a Uniform Resource Identifier (URI).
+                Characters not allowed in a URI are replaced with a '%' followed by two hexadecimal digits.
+                This ensures that your URLs are correctly interpreted by all web browsers and servers.
+              </p>
+            </div>
+          </section>
+        </main>
+      </div>
+    </>
   );
 };
 
