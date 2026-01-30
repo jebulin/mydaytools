@@ -21,8 +21,8 @@ const App: React.FC = () => {
               <FileCode2 className="text-white w-5 h-5" />
             </div>
             <div>
-              <h1 className="font-bold text-lg tracking-tight text-white">JSON Master</h1>
-              <p className="text-xs text-slate-500 font-medium">Validate • Beautify • Minify</p>
+              <h1 className="font-bold text-lg tracking-tight text-white">My Day Tools</h1>
+              <p className="text-xs text-slate-500 font-medium">JSON Master • Text Compare • Encode Decode</p>
             </div>
           </div>
           <nav className="flex items-center gap-4">
