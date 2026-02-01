@@ -24,6 +24,12 @@ const Dashboard: React.FC = () => {
       path: '/encode-decode',
       image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=60',
     },
+    {
+      title: 'File Comparison',
+      description: 'Compare two excel files and highlight the differences.',
+      path: '/file-comparison',
+      image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=60',
+    },
   ];
 
   return (

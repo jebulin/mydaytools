@@ -1,0 +1,144 @@
+.file-drop-zone {
+  position: relative;
+  border: 2px dashed var(--border-color);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 200px;
+  cursor: pointer;
+  background: rgba(30, 41, 59, 0.4);
+  /* surface-color with opacity */
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+.file-drop-zone:hover {
+  border-color: var(--primary-color);
+  background: rgba(100, 108, 255, 0.05);
+  /* primary-color with low opacity */
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.file-drop-zone.has-file {
+  border-color: var(--primary-color);
+  background: rgba(100, 108, 255, 0.05);
+  border-style: solid;
+}
+
+.file-drop-zone.error {
+  border-color: var(--error-color);
+  background: rgba(239, 68, 68, 0.05);
+}
+
+.file-drop-zone.success {
+  border-color: var(--success-color);
+  background: rgba(16, 185, 129, 0.05);
+  border-style: solid;
+}
+
+.drop-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  z-index: 1;
+}
+
+.drop-icon-wrapper {
+  padding: 1rem;
+  border-radius: 50%;
+  background: var(--surface-color);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease;
+}
+
+.file-drop-zone:hover .drop-icon-wrapper {
+  transform: scale(1.1);
+}
+
+.drop-text-primary {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.drop-text-secondary {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.file-info-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.remove-file-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.remove-file-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--error-color);
+}
+
+.retry-btn {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--primary-color);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.retry-btn:hover {
+  color: var(--primary-hover);
+}
+
+/* Animations */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+.text-primary {
+  color: var(--primary-color);
+}
+
+.text-success {
+  color: var(--success-color);
+}
+
+.text-error {
+  color: var(--error-color);
+}

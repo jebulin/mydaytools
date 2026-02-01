@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
 import CookiePolicy from './components/CookiePolicy';
+import FileComparison from './pages/FileComparison/FileComparison';
 import { Link } from 'react-router-dom';
 import { FileCode2, Menu, X } from 'lucide-react';
 import { ThemeToggle } from './components/ThemeToggle';
@@ -37,6 +38,7 @@ const AppRoutes: React.FC = () => {
           <Link to="/" className="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Dashboard</Link>
           <Link to="/json-master" className="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">JSON Master</Link>
           <Link to="/text-compare" className="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Text Compare</Link>
+          <Link to="/file-comparison" className="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">File Compare</Link>
           <Link to="/encode-decode" className="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Encode Decode</Link>
           <Link to="/blog" className="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Blogs</Link>
           <div className="pl-2 border-l border-slate-200 dark:border-slate-800">
@@ -63,6 +65,7 @@ const AppRoutes: React.FC = () => {
             <Link to="/" onClick={() => setIsMenuOpen(false)} className="text-2xl font-bold text-slate-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Tools</Link>
             <Link to="/json-master" onClick={() => setIsMenuOpen(false)} className="text-2xl font-bold text-slate-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">JSON Master</Link>
             <Link to="/text-compare" onClick={() => setIsMenuOpen(false)} className="text-2xl font-bold text-slate-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Text Compare</Link>
+            <Link to="/file-comparison" onClick={() => setIsMenuOpen(false)} className="text-2xl font-bold text-slate-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">File Compare</Link>
             <Link to="/encode-decode" onClick={() => setIsMenuOpen(false)} className="text-2xl font-bold text-slate-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Encode Decode</Link>
             <Link to="/blog" onClick={() => setIsMenuOpen(false)} className="text-2xl font-bold text-slate-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Blog</Link>
           </nav>
@@ -75,6 +78,7 @@ const AppRoutes: React.FC = () => {
           <Route path="/" element={<Dashboard />} />
           <Route path="/json-master" element={<Home />} />
           <Route path="/text-compare" element={<TextCompareHome />} />
+          <Route path="/file-comparison" element={<FileComparison />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogDetail />} />
           <Route path="/encode-decode" element={<Encoder />} />
