@@ -15,6 +15,9 @@ const baseRoutes = [
   { url: '/text-compare', priority: '0.8', changefreq: 'weekly' },
   { url: '/encode-decode', priority: '0.8', changefreq: 'weekly' },
   { url: '/blog', priority: '0.7', changefreq: 'daily' },
+  { url: '/privacy-policy', priority: '0.3', changefreq: 'monthly' },
+  { url: '/terms-of-service', priority: '0.3', changefreq: 'monthly' },
+  { url: '/cookie-policy', priority: '0.3', changefreq: 'monthly' },
 ];
 
 const routesToPrerender = [...baseRoutes];

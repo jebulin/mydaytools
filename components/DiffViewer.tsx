@@ -26,14 +26,14 @@ export const DiffViewer: React.FC<DiffViewerProps> = ({ original, modified, meth
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-full">
       {/* Original View (Left) */}
-      <div className="flex flex-col border border-slate-200 rounded-xl overflow-hidden bg-white shadow-sm h-full">
-        <div className="bg-slate-100 px-4 py-2 border-b border-slate-200 flex items-center justify-between">
-          <span className="font-semibold text-slate-700 text-sm flex items-center gap-2">
+      <div className="flex flex-col border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden bg-white dark:bg-slate-900 shadow-sm h-full transition-colors">
+        <div className="bg-slate-100 dark:bg-slate-800 px-4 py-2 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between transition-colors">
+          <span className="font-semibold text-slate-700 dark:text-slate-300 text-sm flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-red-500"></span>
             Original Text (Main)
           </span>
         </div>
-        <div className="p-4 overflow-auto flex-1 font-mono text-sm whitespace-pre-wrap leading-relaxed text-slate-800">
+        <div className="p-4 overflow-auto flex-1 font-mono text-sm whitespace-pre-wrap leading-relaxed text-slate-800 dark:text-slate-200">
           {diffs.map((part, index) => {
             // For the Left side:
             // - Show common text
@@ -44,7 +44,7 @@ export const DiffViewer: React.FC<DiffViewerProps> = ({ original, modified, meth
             return (
               <span
                 key={index}
-                className={part.removed ? "bg-red-200 text-red-900 line-through decoration-red-400 decoration-2 opacity-80" : ""}
+                className={part.removed ? "bg-red-200 dark:bg-red-900/50 text-red-900 dark:text-red-200 line-through decoration-red-400 decoration-2 opacity-80 rounded px-0.5" : ""}
               >
                 {part.value}
               </span>
@@ -54,14 +54,14 @@ export const DiffViewer: React.FC<DiffViewerProps> = ({ original, modified, meth
       </div>
 
       {/* Modified View (Right) */}
-      <div className="flex flex-col border border-slate-200 rounded-xl overflow-hidden bg-white shadow-sm h-full">
-        <div className="bg-slate-100 px-4 py-2 border-b border-slate-200 flex items-center justify-between">
-          <span className="font-semibold text-slate-700 text-sm flex items-center gap-2">
+      <div className="flex flex-col border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden bg-white dark:bg-slate-900 shadow-sm h-full transition-colors">
+        <div className="bg-slate-100 dark:bg-slate-800 px-4 py-2 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between transition-colors">
+          <span className="font-semibold text-slate-700 dark:text-slate-300 text-sm flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-green-500"></span>
             Modified Text (Secondary)
           </span>
         </div>
-        <div className="p-4 overflow-auto flex-1 font-mono text-sm whitespace-pre-wrap leading-relaxed text-slate-800">
+        <div className="p-4 overflow-auto flex-1 font-mono text-sm whitespace-pre-wrap leading-relaxed text-slate-800 dark:text-slate-200">
           {diffs.map((part, index) => {
             // For the Right side:
             // - Show common text
@@ -72,7 +72,7 @@ export const DiffViewer: React.FC<DiffViewerProps> = ({ original, modified, meth
             return (
               <span
                 key={index}
-                className={part.added ? "bg-green-200 text-green-900 font-medium" : ""}
+                className={part.added ? "bg-green-200 dark:bg-green-900/50 text-green-900 dark:text-green-200 font-medium rounded px-0.5" : ""}
               >
                 {part.value}
               </span>

@@ -94,13 +94,13 @@ const Home: React.FC = () => {
         description="Free online JSON tool to format, validate, minify, and beautify your JSON data. AI-powered JSON fixing and sample generation included."
         canonical="/json-master"
       />
-      <div className="flex flex-col h-screen bg-slate-950 text-slate-200">
+      <div className="flex flex-col h-[calc(100vh-4rem)] bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-200 transition-colors duration-300">
         <header className="sr-only">
           <h1>JSON Master: The Ultimate JSON Formatter and Validator</h1>
         </header>
 
         {/* Toolbar */}
-        <div className="flex-none bg-slate-900 border-b border-slate-800 p-2 overflow-x-auto">
+        <div className="flex-none bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 p-2 overflow-x-auto transition-colors duration-300">
           <div className="max-w-[1920px] mx-auto flex items-center justify-center gap-2 min-w-max px-4">
             <Button onClick={handleBeautify} icon={<AlignLeft size={18} />}>Beautify</Button>
             <Button onClick={handleMinimize} variant="secondary" icon={<Minimize2 size={18} />}>Minimize</Button>
@@ -110,7 +110,7 @@ const Home: React.FC = () => {
 
         {/* Main Content */}
         <main className="flex-1 overflow-hidden relative">
-          <div className="h-full flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-slate-800">
+          <div className="h-full flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-slate-200 dark:divide-slate-800 transition-colors duration-300">
             {/* Left Panel: Input */}
             <section className="flex-1 h-1/2 md:h-full p-4 min-w-0" aria-label="JSON Input">
               <Editor
@@ -126,8 +126,8 @@ const Home: React.FC = () => {
 
             {/* Mobile Splitter Visualization (Icon only) */}
             <div className="hidden md:flex flex-none items-center justify-center w-0 z-10 relative" aria-hidden="true">
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-800 border border-slate-700 p-1.5 rounded-full shadow-xl">
-                <ArrowRightLeft size={14} className="text-slate-400" />
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-200 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 p-1.5 rounded-full shadow-xl transition-colors">
+                <ArrowRightLeft size={14} className="text-slate-600 dark:text-slate-400" />
               </div>
             </div>
 

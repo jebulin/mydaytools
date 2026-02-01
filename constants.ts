@@ -1,5 +1,5 @@
 export const SAMPLE_JSON = `{
-  "name": "JSON Master",
+  "name": "My Day Tools",
   "version": 1.0,
   "features": [
     "Validation",
