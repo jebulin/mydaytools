@@ -12,6 +12,7 @@ import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
 import CookiePolicy from './components/CookiePolicy';
 import FileComparison from './pages/FileComparison/FileComparison';
+import AboutUs from './components/AboutUs';
 import { Link } from 'react-router-dom';
 import { FileCode2, Menu, X } from 'lucide-react';
 import { ThemeToggle } from './components/ThemeToggle';
@@ -85,6 +86,7 @@ const AppRoutes: React.FC = () => {
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/cookie-policy" element={<CookiePolicy />} />
+          <Route path="/about" element={<AboutUs />} />
         </Routes>
       </main>
 

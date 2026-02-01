@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FileCode2, Github, Twitter, Mail, Instagram } from 'lucide-react';
+import { FileCode2, Github, Twitter, Mail, Instagram, Linkedin } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const year = new Date().getFullYear();
@@ -27,6 +27,10 @@ const Footer: React.FC = () => {
               <a href="https://www.instagram.com/jebulin_dev/" className="p-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all">
                 <Instagram size={18} />
               </a>
+
+              <a href="https://in.linkedin.com/in/jebulin3" className="p-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all">
+                <Linkedin size={18} />
+              </a>
             </div>
           </div>
 
@@ -37,20 +41,11 @@ const Footer: React.FC = () => {
               <li><Link to="/json-master" className="text-slate-600 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 text-sm transition-colors">JSON Formatter</Link></li>
               <li><Link to="/text-compare" className="text-slate-600 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 text-sm transition-colors">Text Compare</Link></li>
               <li><Link to="/encode-decode" className="text-slate-600 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 text-sm transition-colors">Encode & Decode</Link></li>
+              <li><Link to="/file-comparison" className="text-slate-600 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 text-sm transition-colors">File Comparison</Link></li>
               <li><Link to="/" className="text-slate-600 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 text-sm transition-colors">All Tools</Link></li>
             </ul>
           </div>
 
-          {/* Media Column */}
-          {/* <div className="md:col-span-1">
-            <h4 className="text-white font-bold mb-4 uppercase tracking-wider text-xs">Resources</h4>
-            <ul className="space-y-3">
-              <li><Link to="/blog" className="text-slate-500 hover:text-blue-400 text-sm transition-colors">Developer Blog</Link></li>
-              <li><a href="#" className="text-slate-500 hover:text-blue-400 text-sm transition-colors">API Docs</a></li>
-              <li><a href="#" className="text-slate-500 hover:text-blue-400 text-sm transition-colors">Release Notes</a></li>
-              <li><a href="#" className="text-slate-500 hover:text-blue-400 text-sm transition-colors">Open Source</a></li>
-            </ul>
-          </div> */}
 
           {/* Legal Column */}
           <div className="md:col-span-1">
@@ -59,6 +54,16 @@ const Footer: React.FC = () => {
               <li><Link to="/privacy-policy" className="text-slate-600 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 text-sm transition-colors">Privacy Policy</Link></li>
               <li><Link to="/terms-of-service" className="text-slate-600 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 text-sm transition-colors">Terms of Service</Link></li>
               <li><Link to="/cookie-policy" className="text-slate-600 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 text-sm transition-colors">Cookie Policy</Link></li>
+            </ul>
+          </div>
+
+          {/* Company Column */}
+          <div className="md:col-span-1">
+            <h4 className="text-slate-900 dark:text-white font-bold mb-4 uppercase tracking-wider text-xs">Company</h4>
+            <ul className="space-y-3">
+              <li><Link to="/about" className="text-slate-600 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 text-sm transition-colors">About Us</Link></li>
+              <li><Link to="/blog" className="text-slate-600 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 text-sm transition-colors">Blog</Link></li>
+              <li><a href="mailto:jebulin3@gmail.com" className="text-slate-600 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 text-sm transition-colors">Contact</a></li>
             </ul>
           </div>
         </div>
