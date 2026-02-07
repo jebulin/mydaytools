@@ -11,10 +11,10 @@ const Home: React.FC = () => {
   const [inputJson, setInputJson] = useState<string>(SAMPLE_JSON);
   const [outputJson, setOutputJson] = useState<string>('');
 
-  const [inputValid, setInputValid] = useState(true);
+  const [inputValid, setInputValid] = useState(false);
   const [inputError, setInputError] = useState<string>('');
 
-  const [outputValid, setOutputValid] = useState(true);
+  const [outputValid, setOutputValid] = useState(false);
   const [outputError, setOutputError] = useState<string>('');
 
   const [isFixing, setIsFixing] = useState(false);
@@ -32,6 +32,22 @@ const Home: React.FC = () => {
     setOutputValid(result.isValid);
     setOutputError(result.error || '');
   }, [outputJson]);
+
+  // Auto-fill output when valid JSON is entered in input
+  useEffect(() => {
+    if (inputValid && inputJson.trim()) {
+      const beautified = beautifyJson(inputJson);
+      try{
+        JSON.parse(beautified);
+        setOutputJson(beautified);
+      }catch(err){
+        setOutputJson("");
+      }
+    } else if (!inputJson.trim()) {
+      // Clear output if input is empty
+      setOutputJson('');
+    }
+  }, [inputJson, inputValid]);
 
   // Actions
   const handleBeautify = () => {

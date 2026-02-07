@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Make placeholder visible even when text is transparent */
+textarea.text-transparent::placeholder {
+  color: rgb(148 163 184);
+  /* slate-400 */
+  opacity: 1;
+}
+
+.dark textarea.text-transparent::placeholder {
+  color: rgb(148 163 184);
+  /* slate-400 */
+  opacity: 0.7;
+}
+
+/* Hide scrollbar on line numbers but keep scroll functionality */
+.overflow-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+.overflow-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
