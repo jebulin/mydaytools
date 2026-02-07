@@ -37,6 +37,25 @@ export const Editor: React.FC<EditorProps> = ({
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const highlightRef = useRef<HTMLDivElement>(null);
   const lineNumbersRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Handle Ctrl+F keyboard shortcut
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Check if the event target is within this editor's container
+      if (containerRef.current && containerRef.current.contains(e.target as Node)) {
+        if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
+          e.preventDefault();
+          if (!isViewerMode) {
+            setShowSearch(true);
+          }
+        }
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [isViewerMode]);
 
   // Sync scroll between textarea and highlight div
   const handleScroll = () => {
@@ -46,6 +65,8 @@ export const Editor: React.FC<EditorProps> = ({
       lineNumbersRef.current.scrollTop = textareaRef.current.scrollTop;
     }
   };
+
+
 
 
 
@@ -134,7 +155,7 @@ export const Editor: React.FC<EditorProps> = ({
 
 
   return (
-    <div className={`flex flex-col h-full bg-white dark:bg-slate-900 rounded-lg border ${isValid ? 'border-slate-200 dark:border-slate-700' : 'border-red-500/50'} shadow-lg dark:shadow-xl overflow-hidden transition-colors duration-200`}>
+    <div ref={containerRef} className={`flex flex-col h-full bg-white dark:bg-slate-900 rounded-lg border ${isValid ? 'border-slate-200 dark:border-slate-700' : 'border-red-500/50'} shadow-lg dark:shadow-xl overflow-hidden transition-colors duration-200`}>
       {/* Header / Toolbar */}
       <div className="flex items-center justify-between px-4 py-2 bg-slate-50 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 transition-colors">
         <div className="flex items-center gap-2">
