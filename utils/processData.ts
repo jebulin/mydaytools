@@ -1,4 +1,4 @@
-import type { ColumnFormData, SheetRow, ProcessedResult } from "../services/ColumnFormData";
+import type { ColumnFormData, SheetRow, ProcessedResult } from "../types";
 
 export default function processSheet(data: ColumnFormData): ProcessedResult {
   const {

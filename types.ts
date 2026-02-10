@@ -78,3 +78,42 @@ export interface ProcessedResult {
   newSheet1Data: SheetRow[];
   newSheet2Data: SheetRow[];
 }
+
+export interface ReceiptItem {
+  id: string;
+  name: string;
+  price: number;
+  assignedTo: string[];
+}
+
+export interface ReceiptData {
+  items: ReceiptItem[];
+  subtotal: number;
+  tax: number;
+  tip: number;
+  total: number;
+  currency: string;
+}
+
+export interface ChatMessage {
+  id: string;
+  role: 'user' | 'model';
+  text: string;
+  timestamp: Date;
+}
+
+export interface PersonSummary {
+  name: string;
+  items: ReceiptItem[];
+  subtotal: number;
+  taxShare: number;
+  tipShare: number;
+  totalOwed: number;
+}
+
+export type InputMode = 'chat' | 'choice' | 'count' | 'names' | 'assignment';
+
+export interface AssignmentData {
+  item: ReceiptItem;
+  people: string[];
+}

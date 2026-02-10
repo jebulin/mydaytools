@@ -41,6 +41,7 @@ const Footer: React.FC = () => {
               <li><Link to="/json-master" className="text-slate-600 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 text-sm transition-colors">JSON Formatter</Link></li>
               <li><Link to="/text-compare" className="text-slate-600 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 text-sm transition-colors">Text Compare</Link></li>
               <li><Link to="/encode-decode" className="text-slate-600 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 text-sm transition-colors">Encode & Decode</Link></li>
+              <li><Link to="/split-bill" className="text-slate-600 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 text-sm transition-colors">Split Bill</Link></li>
               <li><Link to="/file-comparison" className="text-slate-600 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 text-sm transition-colors">File Comparison</Link></li>
               <li><Link to="/" className="text-slate-600 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 text-sm transition-colors">All Tools</Link></li>
             </ul>

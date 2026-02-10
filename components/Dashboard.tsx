@@ -30,6 +30,12 @@ const Dashboard: React.FC = () => {
       path: '/file-comparison',
       image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=60',
     },
+    {
+      title: 'Split Bill',
+      description: 'Upload receipts and easily split bills among friends with AI assistance.',
+      path: '/split-bill',
+      image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=60',
+    },
   ];
 
   return (

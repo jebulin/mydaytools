@@ -119,11 +119,35 @@ const BlogDetail: React.FC = () => {
                   Liked this article? Check out our tools that can help you implement these concepts in your own projects.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <Link to="/json-master" className="px-5 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white text-sm font-semibold rounded-xl border border-slate-300 dark:border-slate-700 transition-all">
-                    JSON Master
-                  </Link>
-                  <Link to="/text-compare" className="px-5 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white text-sm font-semibold rounded-xl border border-slate-300 dark:border-slate-700 transition-all">
-                    Text Compare
+                  {/* Show relevant tools based on blog category */}
+                  {(blog.category === 'Data Formats' || blog.category === 'Development' || blog.category === 'Tools' || blog.category === 'Best Practices') && (
+                    <Link to="/json-master" className="px-5 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white text-sm font-semibold rounded-xl border border-slate-300 dark:border-slate-700 transition-all">
+                      JSON Master
+                    </Link>
+                  )}
+                  {(blog.category === 'Text Tools' || blog.category === 'Writing') && (
+                    <Link to="/text-compare" className="px-5 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white text-sm font-semibold rounded-xl border border-slate-300 dark:border-slate-700 transition-all">
+                      Text Compare
+                    </Link>
+                  )}
+                  {(blog.category === 'Encoding' || blog.category === 'Web Development' || blog.category === 'Security') && (
+                    <Link to="/encode-decode" className="px-5 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white text-sm font-semibold rounded-xl border border-slate-300 dark:border-slate-700 transition-all">
+                      Encode & Decode
+                    </Link>
+                  )}
+                  {(blog.category === 'Finance' || blog.category === 'AI Tools' || blog.category === 'Lifestyle') && (
+                    <Link to="/split-bill" className="px-5 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white text-sm font-semibold rounded-xl border border-slate-300 dark:border-slate-700 transition-all">
+                      Split Bill
+                    </Link>
+                  )}
+                  {(blog.category === 'Data Analysis' || blog.category === 'DevOps' || blog.category === 'Productivity') && (
+                    <Link to="/file-comparison" className="px-5 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white text-sm font-semibold rounded-xl border border-slate-300 dark:border-slate-700 transition-all">
+                      File Comparison
+                    </Link>
+                  )}
+                  {/* Always show link to all tools */}
+                  <Link to="/" className="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-xl border border-blue-700 dark:border-blue-500 transition-all shadow-sm">
+                    View All Tools
                   </Link>
                 </div>
               </div>
