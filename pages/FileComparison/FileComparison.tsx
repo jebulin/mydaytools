@@ -108,6 +108,60 @@ export default function FileComparison() {
             </button>
           </div>
 
+          <section className="mt-16 border-t border-slate-200 dark:border-slate-800 pt-12">
+            <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+              <div className="space-y-6">
+                <h2 className="text-2xl font-bold text-slate-900 dark:text-white">How to Compare Excel Files</h2>
+                <div className="space-y-4">
+                  <div className="flex gap-4">
+                    <div className="flex-none w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold">1</div>
+                    <div>
+                      <h3 className="font-semibold text-slate-900 dark:text-white">Upload Workbook</h3>
+                      <p className="text-sm text-slate-600 dark:text-slate-400">Select your Excel file (.xlsx or .xls). We adhere to privacy standards and process data locally.</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-4">
+                    <div className="flex-none w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold">2</div>
+                    <div>
+                      <h3 className="font-semibold text-slate-900 dark:text-white">Map Columns</h3>
+                      <p className="text-sm text-slate-600 dark:text-slate-400">Choose the unique identifier column (e.g., ID or SKU) and the columns you want to check for changes.</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-4">
+                    <div className="flex-none w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold">3</div>
+                    <div>
+                      <h3 className="font-semibold text-slate-900 dark:text-white">Download Result</h3>
+                      <p className="text-sm text-slate-600 dark:text-slate-400">Get a generated Excel file highlighting the added, removed, and modified rows.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-6">
+                <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Why Use This Tool?</h2>
+                <div className="bg-slate-50 dark:bg-slate-900/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 space-y-4">
+                  <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                    Manually comparing Excel sheets is tedious and error-prone. Our tool automates this process, ensuring 100% accuracy in detecting changes.
+                  </p>
+                  <ul className="space-y-2 text-sm text-slate-700 dark:text-slate-300">
+                    <li className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                      Works with large datasets
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                      Privacy-first (Client-side processing)
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                      Visual highlighting of differences
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
         </main>
       </div>
     </>

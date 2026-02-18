@@ -150,24 +150,62 @@ const TextCompareHome: React.FC = () => {
             />
           </section>
 
-          <section className="mt-12 p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-4xl mx-auto transition-colors">
-            <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-4">Frequently Asked Questions</h2>
-            <div className="space-y-6">
+          {/* SEO Content Section */}
+          <section className="grid md:grid-cols-2 gap-12 pt-12 border-t border-slate-200 dark:border-slate-800">
+
+            <div className="space-y-8">
               <div>
-                <h4 className="text-blue-600 dark:text-blue-400 font-semibold mb-2">How does the comparison work?</h4>
-                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                  We use an optimized diff algorithm to identify additions, deletions, and modifications.
-                  You can compare text at the word level, character level, or line level depending on your needs.
-                </p>
+                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">How to Use Text Compare</h2>
+                <ol className="list-decimal list-inside space-y-3 text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                  <li><strong>Paste Original Text:</strong> Enter the base version of your text in the left panel.</li>
+                  <li><strong>Paste Modified Text:</strong> Enter the updated version in the right panel.</li>
+                  <li><strong>Select Diff Method:</strong> Choose between "Words" (standard), "Chars" (precise), or "Lines" (structure) to adjust how differences are calculated.</li>
+                  <li><strong>Analyze Results:</strong> The tool will instantly highlight added text in <span className="text-green-600 dark:text-green-400 bg-green-100 dark:bg-green-900/30 px-1 rounded">green</span> and removed text in <span className="text-red-600 dark:text-red-400 bg-red-100 dark:bg-red-900/30 px-1 rounded">red</span>.</li>
+                </ol>
               </div>
+
               <div>
-                <h4 className="text-blue-600 dark:text-blue-400 font-semibold mb-2">Is my data secure?</h4>
-                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                  Yes! All text comparison happens directly in your browser using JavaScript.
-                  Your text never leaves your machine and is never sent to our servers.
-                </p>
+                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Use Cases</h2>
+                <div className="grid gap-4">
+                  <div className="p-4 bg-slate-50 dark:bg-slate-900/50 rounded-lg border border-slate-200 dark:border-slate-800">
+                    <h3 className="font-semibold text-slate-900 dark:text-white mb-1">For Developers</h3>
+                    <p className="text-xs text-slate-600 dark:text-slate-400">Quickly check changes in configuration files, code snippets, or JSON responses without needing a heavy IDE.</p>
+                  </div>
+                  <div className="p-4 bg-slate-50 dark:bg-slate-900/50 rounded-lg border border-slate-200 dark:border-slate-800">
+                    <h3 className="font-semibold text-slate-900 dark:text-white mb-1">For Writers & Editors</h3>
+                    <p className="text-xs text-slate-600 dark:text-slate-400">Track revisions in drafts, articles, or essays to see exactly what has been edited, added, or deleted.</p>
+                  </div>
+                </div>
               </div>
             </div>
+
+            <div className="space-y-8">
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Frequently Asked Questions</h2>
+              <div className="space-y-6">
+                <div>
+                  <h4 className="text-blue-600 dark:text-blue-400 font-semibold mb-2">How does the comparison algorithm work?</h4>
+                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                    We utilize the Myers' diff algorithm, which is the industry standard for identifying the shortest sequence of edits to transform one text into another. It's efficient and accurate for both small snippets and large documents.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-blue-600 dark:text-blue-400 font-semibold mb-2">Is my data secure?</h4>
+                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                    Yes! All text comparison happens directly in your browser using JavaScript.
+                    Your text never leaves your machine and is never sent to our servers.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-blue-600 dark:text-blue-400 font-semibold mb-2">What are the different modes?</h4>
+                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                    <strong>Words:</strong> Best for natural language. Compares whole words.<br />
+                    <strong>Chars:</strong> Best for code or fixing typos. Highlights individual letter changes.<br />
+                    <strong>Lines:</strong> Best for lists or code blocks. Compares line by line.
+                  </p>
+                </div>
+              </div>
+            </div>
+
           </section>
         </main>
       </div>

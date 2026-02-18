@@ -20,7 +20,7 @@ const Footer: React.FC = () => {
               A premium suite of free online tools for developers. Fast, private, and secure by design.
             </p>
             <div className="flex items-center gap-4">
-              <a href="https://github.com/jebulin?tab=repositories" className="p-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all">
+              <a href="https://github.com/jebulin?tab=repositories" target="_blank" rel="noopener noreferrer" className="p-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all">
                 <Github size={18} />
               </a>
 

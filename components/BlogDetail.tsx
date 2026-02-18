@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import blogs from '../blogData.json';
 import { ArrowLeft, Calendar, User, Tag } from 'lucide-react';
 import SEO from './SEO';
+import { renderMarkdown } from '../utils/markdownRenderer';
 
 const BlogDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -107,9 +108,10 @@ const BlogDetail: React.FC = () => {
             </header>
 
             <div className="prose prose-slate dark:prose-invert prose-lg max-w-none">
-              <div className="text-slate-700 dark:text-slate-300 text-lg sm:text-xl leading-relaxed whitespace-pre-line space-y-6">
-                {blog.content}
-              </div>
+              <div
+                className="text-slate-700 dark:text-slate-300 text-lg sm:text-xl leading-relaxed space-y-4"
+                dangerouslySetInnerHTML={{ __html: renderMarkdown(blog.content) }}
+              />
             </div>
 
             <footer className="mt-20 pt-10 border-t border-slate-200 dark:border-slate-800 transition-colors">

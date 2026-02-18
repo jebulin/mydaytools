@@ -69,20 +69,49 @@ const Dashboard: React.FC = () => {
           ))}
         </div>
 
-        <section className="mt-20 max-w-4xl text-center">
-          <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-200 mb-6">Why use My Day Tools?</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-4">
-              <h3 className="text-blue-600 dark:text-blue-400 font-semibold mb-2">Privacy First</h3>
-              <p className="text-slate-600 dark:text-slate-500 text-sm">All processing happens locally in your browser. Your data never reaches our servers.</p>
+        <section className="mt-20 max-w-5xl w-full grid md:grid-cols-2 gap-12 text-left">
+          <div className="space-y-6">
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Why use My Day Tools?</h2>
+            <div className="space-y-4">
+              <div className="p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                <h3 className="text-blue-600 dark:text-blue-400 font-semibold mb-1 flex items-center gap-2">
+                  <span className="text-xl">🔒</span> Privacy First
+                </h3>
+                <p className="text-slate-600 dark:text-slate-400 text-sm">
+                  We believe your data belongs to you. All our tools (JSON validation, text comparison, bill splitting) run entirely in your browser. Your sensitive files and text never leave your device.
+                </p>
+              </div>
+              <div className="p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                <h3 className="text-emerald-600 dark:text-emerald-400 font-semibold mb-1 flex items-center gap-2">
+                  <span className="text-xl">⚡</span> Blazing Fast
+                </h3>
+                <p className="text-slate-600 dark:text-slate-400 text-sm">
+                  No server round-trips means instant results. Whether you're pasting 10,000 lines of JSON or a large Excel file, our optimized local algorithms handle it in milliseconds.
+                </p>
+              </div>
+              <div className="p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                <h3 className="text-purple-600 dark:text-purple-400 font-semibold mb-1 flex items-center gap-2">
+                  <span className="text-xl">💎</span> 100% Free
+                </h3>
+                <p className="text-slate-600 dark:text-slate-400 text-sm">
+                  No subscriptions, no hidden fees, and no "pro" plans. Every feature, including AI repair and file comparison, is completely free to use.
+                </p>
+              </div>
             </div>
-            <div className="p-4">
-              <h3 className="text-emerald-600 dark:text-emerald-400 font-semibold mb-2">Blazing Fast</h3>
-              <p className="text-slate-600 dark:text-slate-500 text-sm">Lightweight and optimized for speed, so you can get your tasks done instantly.</p>
-            </div>
-            <div className="p-4">
-              <h3 className="text-purple-600 dark:text-purple-400 font-semibold mb-2">Always Free</h3>
-              <p className="text-slate-600 dark:text-slate-500 text-sm">No subscriptions, no accounts, no paywalls. Just pure utility for everyone.</p>
+          </div>
+
+          <div className="space-y-6">
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white">About the Suite</h2>
+            <div className="prose dark:prose-invert text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+              <p>
+                <strong>My Day Tools</strong> was built to solve the frustration of finding simple, reliable developer utilities that don't steal your data or bombard you with ads.
+              </p>
+              <p>
+                Our mission is to provide a clean, modern, and privacy-focused alternative to the cluttered tool sites of the past. Whether you are a full-stack developer debugging an API response, a student learning to code, or a writer checking a draft, we have a tool for you.
+              </p>
+              <p className="border-t border-slate-200 dark:border-slate-800 pt-4 mt-4">
+                <em>Continuously updated with new features and improvements based on user feedback.</em>
+              </p>
             </div>
           </div>
         </section>

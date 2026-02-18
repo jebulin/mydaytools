@@ -4,7 +4,7 @@ import { parseReceiptImage, processChatCommand, fileToGenerativePart } from '@/s
 import { ReceiptView } from '@/components/ReceiptView';
 import { ChatInterface } from '@/components/ChatInterface';
 import { Summary } from '@/components/Summary';
-
+import SEO from '@/components/SEO';
 interface HistoryState {
   receipt: ReceiptData;
   currentItemIndex: number;
@@ -218,82 +218,121 @@ const SplitBill: React.FC = () => {
   }, [receipt, people, currentItemIndex]); // Added dependencies for closure capture
 
   return (
-    <div className="flex flex-col md:flex-row h-screen bg-slate-100">
-      {/* Left Pane: Receipt & Summary */}
-      <div className="flex-1 flex flex-col min-w-0 md:border-r border-slate-200 bg-white relative">
-        <header className="p-4 border-b border-slate-200 bg-white flex justify-between items-center shadow-sm z-20">
-          <div className="flex items-center space-x-2">
-            <div className="p-2 bg-indigo-600 rounded-lg text-white">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 36v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <h1 className="text-xl font-bold text-slate-800 tracking-tight">SplitSmart</h1>
-          </div>
-          <label className={`cursor-pointer bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center space-x-2 ${inputMode !== 'chat' && inputMode !== 'choice' ? 'opacity-50 pointer-events-none' : ''}`}>
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
-            </svg>
-            <span>{receipt ? 'Replace Receipt' : 'Upload Receipt'}</span>
-            <input
-              type="file"
-              className="hidden"
-              accept="image/*"
-              onChange={handleFileUpload}
-              disabled={inputMode !== 'chat' && inputMode !== 'choice'}
-            />
-          </label>
-        </header>
+    <>
+      <SEO
+        title="Split Bill Calculator - AI Receipt Scanner"
+        description="Easily split restaurant bills among friends. Upload a receipt photo and let AI extract items automatically. Fair, proportional bill splitting made simple."
+        canonical="/split-bill"
+      />
+      <div className="flex flex-col md:flex-row h-screen bg-slate-100">
+        <div className="flex-1 flex flex-col min-w-0 md:border-r border-slate-200 bg-white relative">
+          <div className="flex-1 overflow-y-auto">
+            <header className="p-4 border-b border-slate-200 bg-white flex justify-between items-center shadow-sm z-20 sticky top-0">
+              <div className="flex items-center space-x-2">
+                <div className="p-2 bg-indigo-600 rounded-lg text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 36v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <h1 className="text-xl font-bold text-slate-800 tracking-tight">SplitSmart</h1>
+              </div>
+              <label className={`cursor-pointer bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center space-x-2 ${inputMode !== 'chat' && inputMode !== 'choice' ? 'opacity-50 pointer-events-none' : ''}`}>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                </svg>
+                <span>{receipt ? 'Replace Receipt' : 'Upload Receipt'}</span>
+                <input
+                  type="file"
+                  className="hidden"
+                  accept="image/*"
+                  onChange={handleFileUpload}
+                  disabled={inputMode !== 'chat' && inputMode !== 'choice'}
+                />
+              </label>
+            </header>
+            {!receipt && !isUploading && (
+              <div className="p-8 max-w-3xl mx-auto space-y-12 pb-24">
+                <section className="text-center space-y-4">
+                  <h2 className="text-2xl font-bold text-slate-800">The Easiest Way to Split Bills</h2>
+                  <p className="text-slate-600">Stop doing math at the dinner table. Upload your receipt and let AI do the work.</p>
+                </section>
 
-        <div className="flex-1 overflow-hidden relative">
-          <ReceiptView
-            items={receipt?.items || []}
-            currency={receipt?.currency || '$'}
-            loading={isUploading}
-            highlightedItemId={
-              (inputMode === 'assignment' && receipt?.items[currentItemIndex])
-                ? receipt.items[currentItemIndex].id
-                : undefined
-            }
-            onClearAssignment={handleClearAssignment}
-            onEditAssignment={handleEditAssignment}
-          />
+                <div className="grid md:grid-cols-3 gap-6">
+                  <div className="p-6 bg-slate-50 rounded-xl">
+                    <h3 className="font-semibold text-slate-900 mb-2">1. Upload Receipt</h3>
+                    <p className="text-sm text-slate-600">Take a photo of your receipt. Our AI automatically reads items and prices.</p>
+                  </div>
+                  <div className="p-6 bg-slate-50 rounded-xl">
+                    <h3 className="font-semibold text-slate-900 mb-2">2. Assign Items</h3>
+                    <p className="text-sm text-slate-600">Tap items to assign them to friends. Split shared appetizers easily.</p>
+                  </div>
+                  <div className="p-6 bg-slate-50 rounded-xl">
+                    <h3 className="font-semibold text-slate-900 mb-2">3. Share & Pay</h3>
+                    <p className="text-sm text-slate-600">Get a clear summary of exactly what everyone owes, including tax and tip.</p>
+                  </div>
+                </div>
+
+                <section className="bg-indigo-50 p-6 rounded-2xl border border-indigo-100">
+                  <h3 className="font-bold text-indigo-900 mb-4">Why use SplitSmart?</h3>
+                  <ul className="space-y-2 text-indigo-800 text-sm">
+                    <li className="flex items-center gap-2">✔ No app download required - runs in your browser.</li>
+                    <li className="flex items-center gap-2">✔ Works with any currency found on the receipt.</li>
+                    <li className="flex items-center gap-2">✔ Secure and private - receipts aren't stored permanently.</li>
+                  </ul>
+                </section>
+              </div>
+            )}
+            <ReceiptView
+              items={receipt?.items || []}
+              currency={receipt?.currency || '$'}
+              loading={isUploading}
+              highlightedItemId={
+                (inputMode === 'assignment' && receipt?.items[currentItemIndex])
+                  ? receipt.items[currentItemIndex].id
+                  : undefined
+              }
+              onClearAssignment={handleClearAssignment}
+              onEditAssignment={handleEditAssignment}
+            />
+
+
+          </div>
+
+          {/* Floating/Fixed Summary at bottom of Left Pane */}
+          {receipt && (
+            <div className="sticky bottom-0 left-0 right-0 z-30 bg-white border-t border-slate-200">
+              <Summary receipt={receipt} />
+            </div>
+          )}
         </div>
 
-        {/* Floating/Fixed Summary at bottom of Left Pane */}
-        {receipt && (
-          <div className="absolute bottom-0 left-0 right-0 z-30">
-            <Summary receipt={receipt} />
-          </div>
-        )}
+        {/* Right Pane: Chat */}
+        <div className="flex-1 flex flex-col min-w-0 bg-slate-50 md:max-w-md lg:max-w-lg shadow-xl z-10">
+          <header className="p-4 bg-white border-b border-slate-200 md:hidden shadow-sm">
+            <h2 className="font-bold text-slate-800">Chat Assistant</h2>
+          </header>
+          <ChatInterface
+            messages={chatMessages}
+            onSendMessage={handleSendMessage}
+            onFileUpload={handleFileUpload}
+            isProcessing={isProcessing}
+            disabled={!receipt || isUploading}
+            inputMode={inputMode}
+            onModeSelect={handleModeSelect}
+            onCountSubmit={handleCountSubmit}
+            onNamesSubmit={handleNamesSubmit}
+            onAssignmentSubmit={handleAssignmentSubmit}
+            assignmentData={
+              (inputMode === 'assignment' && receipt)
+                ? { item: receipt.items[currentItemIndex], people: knownPeople }
+                : undefined
+            }
+            onUndo={handleUndo}
+            canUndo={history.length > 0}
+          />
+        </div>
       </div>
-
-      {/* Right Pane: Chat */}
-      <div className="flex-1 flex flex-col min-w-0 bg-slate-50 md:max-w-md lg:max-w-lg shadow-xl z-10">
-        <header className="p-4 bg-white border-b border-slate-200 md:hidden shadow-sm">
-          <h2 className="font-bold text-slate-800">Chat Assistant</h2>
-        </header>
-        <ChatInterface
-          messages={chatMessages}
-          onSendMessage={handleSendMessage}
-          onFileUpload={handleFileUpload}
-          isProcessing={isProcessing}
-          disabled={!receipt || isUploading}
-          inputMode={inputMode}
-          onModeSelect={handleModeSelect}
-          onCountSubmit={handleCountSubmit}
-          onNamesSubmit={handleNamesSubmit}
-          onAssignmentSubmit={handleAssignmentSubmit}
-          assignmentData={
-            (inputMode === 'assignment' && receipt)
-              ? { item: receipt.items[currentItemIndex], people: knownPeople }
-              : undefined
-          }
-          onUndo={handleUndo}
-          canUndo={history.length > 0}
-        />
-      </div>
-    </div>
+    </>
   );
 };
 
